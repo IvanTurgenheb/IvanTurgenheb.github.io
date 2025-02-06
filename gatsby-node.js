@@ -1,7 +1,7 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
-const blogPost = path.resolve(`./src/templates/blog-post.js`)
+const 자기소개Template = path.resolve(`./src/templates/자기소개.tsx`)
 
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
@@ -9,7 +9,6 @@ const blogPost = path.resolve(`./src/templates/blog-post.js`)
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
-  // Get all markdown blog posts sorted by date
   const result = await graphql(`
     {
       allMarkdownRemark(sort: { frontmatter: { date: ASC } }, limit: 1000) {
@@ -23,32 +22,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }
   `)
 
-  if (result.errors) {
-    reporter.panicOnBuild(
-      `There was an error loading your blog posts`,
-      result.errors
-    )
-    return
-  }
-
   const posts = result.data.allMarkdownRemark.nodes
 
-  if (posts.length > 0) {
-    posts.forEach((post, index) => {
-      const previousPostId = index === 0 ? null : posts[index - 1].id
-      const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
-
-      createPage({
-        path: post.fields.slug,
-        component: blogPost,
-        context: {
-          id: post.id,
-          previousPostId,
-          nextPostId,
-        },
-      })
+  posts.forEach(post => {
+    createPage({
+      path: post.fields.slug,
+      component: 자기소개Template,
+      context: {
+        id: post.id,
+      },
     })
-  }
+  })
 }
 
 /**
@@ -75,34 +59,13 @@ exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
 
   createTypes(`
-    type SiteSiteMetadata {
-      author: Author
-      siteUrl: String
-      social: Social
-    }
-
-    type Author {
-      name: String
-      summary: String
-    }
-
-    type Social {
-      twitter: String
-    }
-
     type MarkdownRemark implements Node {
       frontmatter: Frontmatter
-      fields: Fields
     }
 
     type Frontmatter {
       title: String
       description: String
-      date: Date @dateformat
-    }
-
-    type Fields {
-      slug: String
     }
   `)
 }

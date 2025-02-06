@@ -1,5 +1,5 @@
 const SITE_METADATA = Object.freeze({
-  title: "FE 이상진",
+  title: "FE 개발자 이상진",
   description: "프론트엔드 엔지니어 이상진.",
 })
 
@@ -7,6 +7,7 @@ module.exports = {
   siteMetadata: SITE_METADATA,
   plugins: [
     `gatsby-plugin-image`,
+    `gatsby-plugin-mdx`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -74,9 +75,6 @@ module.exports = {
                 nodes {
                   excerpt
                   html
-                  fields {
-                    slug
-                  }
                   frontmatter {
                     title
                     date
