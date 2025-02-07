@@ -1,15 +1,15 @@
-import { Table } from "@chakra-ui/react"
 import React from "react"
-import type { PrizeType } from "../../types/Profile.interface"
 import Wrapper from "../Wrapper"
+import { Table } from "@chakra-ui/react"
+import type { CertificatesType } from "../../types/Profile.interface"
 
-interface PrizesProps {
-  prizes: PrizeType[]
+interface CertificatesProps {
+  certificates: CertificatesType[]
 }
 
-const Prizes = ({ prizes }: PrizesProps) => {
+const Certificates = ({ certificates }: CertificatesProps) => {
   return (
-    <Wrapper title="🎖️ Prizes">
+    <Wrapper title="🪪 Certificates">
       <Table.Root borderCollapse="separate" borderSpacing="0 10px">
         <Table.Header>
           <Table.Row backgroundColor="gray.300">
@@ -18,10 +18,10 @@ const Prizes = ({ prizes }: PrizesProps) => {
               padding="15px"
               borderRadius="5px 0 0 5px"
             >
-              수상 이름
+              지격증 이름
             </Table.ColumnHeader>
             <Table.ColumnHeader width="20%" padding="15px">
-              수상 연도/날짜
+              취득 연도
             </Table.ColumnHeader>
             <Table.ColumnHeader
               width="35%"
@@ -29,23 +29,23 @@ const Prizes = ({ prizes }: PrizesProps) => {
               padding="15px"
               borderRadius="0 5px 5px 0"
             >
-              수상 기관
+              기관
             </Table.ColumnHeader>
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          {prizes.map((prize, idx) => (
+          {certificates.map((certificate, idx) => (
             <Table.Row key={idx}>
               <Table.Cell padding="15px" borderRadius="5px 0 0 5px">
-                {prize.title}
+                {certificate.title}
               </Table.Cell>
-              <Table.Cell padding="15px">{prize.date}</Table.Cell>
+              <Table.Cell padding="15px">{certificate.date}</Table.Cell>
               <Table.Cell
                 padding="15px"
                 borderRadius="0 5px 5px 0"
                 textAlign="end"
               >
-                {prize.institution}
+                {certificate.institution}
               </Table.Cell>
             </Table.Row>
           ))}
@@ -55,4 +55,4 @@ const Prizes = ({ prizes }: PrizesProps) => {
   )
 }
 
-export default Prizes
+export default Certificates
