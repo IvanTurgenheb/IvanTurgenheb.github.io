@@ -127,9 +127,6 @@ html {
   background-color: #f0f0f0dd;
 }
 
-a {
-}
-
 a:hover {
   transition: 0.05s ease-in-out;
   text-decoration: underline;

@@ -13,7 +13,7 @@ interface HeaderProps {
 
 const Profile = ({ information, contact }: HeaderProps) => {
   return (
-    <Box as="section">
+    <Box as="section" marginBottom="60px">
       <Text textStyle="3xl" fontWeight="600">
         {information.title}
       </Text>

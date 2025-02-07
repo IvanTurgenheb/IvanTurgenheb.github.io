@@ -9,3 +9,9 @@ export interface ContactType {
   github: string
   phone: string
 }
+
+export interface PrizeType {
+  title: string
+  date?: string
+  institution: string
+}

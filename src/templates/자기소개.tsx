@@ -1,10 +1,15 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import type { ContactType, InformationType } from "../types/Profile.interface"
+import type {
+  ContactType,
+  InformationType,
+  PrizeType,
+} from "../types/Profile.interface"
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 import Profile from "../components/Profile"
+import Prizes from "../components/Prizes"
 
 interface BlogTemplateProps {
   data: {
@@ -12,6 +17,7 @@ interface BlogTemplateProps {
       frontmatter: {
         information: InformationType
         contact: ContactType
+        prizes: PrizeType[]
       }
     }
   }
@@ -20,12 +26,12 @@ interface BlogTemplateProps {
 const BlogTemplate = ({
   data: { markdownRemark: myProfile },
 }: BlogTemplateProps) => {
+  const { information, contact, prizes } = myProfile.frontmatter
+
   return (
     <Layout>
-      <Profile
-        information={myProfile.frontmatter.information}
-        contact={myProfile.frontmatter.contact}
-      />
+      <Profile information={information} contact={contact} />
+      <Prizes prizes={prizes} />
     </Layout>
   )
 }
@@ -51,6 +57,11 @@ export const pageQuery = graphql`
           email
           github
           phone
+        }
+        prizes {
+          title
+          date
+          institution
         }
       }
     }
