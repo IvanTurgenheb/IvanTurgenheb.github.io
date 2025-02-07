@@ -1,16 +1,21 @@
 import { Box, Image, Text } from "@chakra-ui/react"
-import profile from "../images/profile.png"
+import profile from "../../images/profile.png"
 import React from "react"
+import { ContactType, InformationType } from "../../types/Profile.interface"
+import ContactCard from "./components/ContactCard"
+import { FaGithub } from "react-icons/fa"
+import { MdOutlineEmail, MdOutlinePhoneAndroid } from "react-icons/md"
 
 interface HeaderProps {
-  title: string
+  information: InformationType
+  contact: ContactType
 }
 
-const Profile = ({ title }: HeaderProps) => {
+const Profile = ({ information, contact }: HeaderProps) => {
   return (
     <Box as="section">
       <Text textStyle="3xl" fontWeight="600">
-        {title}
+        {information.title}
       </Text>
       <Box
         display="flex"
@@ -21,7 +26,7 @@ const Profile = ({ title }: HeaderProps) => {
         <Box display="flex" flexDirection="column" gap="10px">
           <Box>
             <Text fontSize="20px" fontWeight="500" color="green.600">
-              FrontEnd Dev
+              {information.subTitle}
             </Text>
             <Box
               backgroundColor="gray.300"
@@ -30,22 +35,14 @@ const Profile = ({ title }: HeaderProps) => {
               padding="10px 12px"
               lineHeight="22px"
             >
-              긍정적인 에너지와 유연한 마인드를 바탕으로 성장하는 20살
-              프론트엔드 개발자입니다.
+              {information.description}
             </Box>
           </Box>
-          {Array.from({ length: 3 }).map(() => (
-            <Box
-              backgroundColor="gray.200"
-              borderRadius="md"
-              padding="10px 12px"
-              lineHeight="22px"
-            >
-              sdfsdf
-            </Box>
-          ))}
-        </Box>
 
+          <ContactCard text={contact.email} icon={<MdOutlineEmail />} />
+          <ContactCard text={contact.github} icon={<FaGithub />} />
+          <ContactCard text={contact.phone} icon={<MdOutlinePhoneAndroid />} />
+        </Box>
         <Image
           src={profile}
           width="210px"

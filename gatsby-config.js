@@ -59,13 +59,9 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
+            serialize: ({ query: { allMarkdownRemark } }) => {
               return allMarkdownRemark.nodes.map(node => {
                 return Object.assign({}, node.frontmatter, {
-                  description: node.excerpt,
-                  date: node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + node.fields.slug,
                   custom_elements: [{ "content:encoded": node.html }],
                 })
               })
@@ -75,15 +71,11 @@ module.exports = {
                 nodes {
                   excerpt
                   html
-                  frontmatter {
-                    title
-                    date
-                  }
                 }
               }
             }`,
             output: "/rss.xml",
-            title: "Gatsby Starter Blog RSS Feed",
+            title: "RSS Feed",
           },
         ],
       },
@@ -91,8 +83,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `Gatsby`,
+        name: `이상진의 자기소개 페이지`,
+        short_name: `FE DEV | 이상진`,
         start_url: `/`,
         background_color: `#ffffff`,
         display: `minimal-ui`,

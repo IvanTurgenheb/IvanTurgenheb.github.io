@@ -6,7 +6,7 @@ const 자기소개Template = path.resolve(`./src/templates/자기소개.tsx`)
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
  */
-exports.createPages = async ({ graphql, actions, reporter }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const result = await graphql(`
@@ -22,15 +22,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }
   `)
 
-  const posts = result.data.allMarkdownRemark.nodes
+  const myProfileElements = result.data.allMarkdownRemark.nodes
 
-  posts.forEach(post => {
+  myProfileElements.forEach(profile => {
     createPage({
       path: post.fields.slug,
       component: 자기소개Template,
-      context: {
-        id: post.id,
-      },
     })
   })
 }
@@ -50,22 +47,4 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     })
   }
-}
-
-/**
- * @type {import('gatsby').GatsbyNode['createSchemaCustomization']}
- */
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
-
-  createTypes(`
-    type MarkdownRemark implements Node {
-      frontmatter: Frontmatter
-    }
-
-    type Frontmatter {
-      title: String
-      description: String
-    }
-  `)
 }

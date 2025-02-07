@@ -1,44 +1,57 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import Profile from "../components/profile"
+import type { ContactType, InformationType } from "../types/Profile.interface"
+import Layout from "../components/Layout"
+import Seo from "../components/Seo"
+import Profile from "../components/Profile"
 
 interface BlogTemplateProps {
   data: {
     markdownRemark: {
       frontmatter: {
-        title: string
-        description: string
+        information: InformationType
+        contact: ContactType
       }
     }
   }
 }
 
 const BlogTemplate = ({
-  data: { markdownRemark: post },
+  data: { markdownRemark: myProfile },
 }: BlogTemplateProps) => {
   return (
     <Layout>
-      <Profile title={post.frontmatter.title} />
+      <Profile
+        information={myProfile.frontmatter.information}
+        contact={myProfile.frontmatter.contact}
+      />
     </Layout>
   )
 }
 
-export const Head = ({ data: { markdownRemark: post } }: BlogTemplateProps) => {
-  return <Seo title={post.frontmatter.title} />
+export const Head = ({
+  data: { markdownRemark: myProfile },
+}: BlogTemplateProps) => {
+  return <Seo title={myProfile.frontmatter.information.title} />
 }
 
 export default BlogTemplate
 
 export const pageQuery = graphql`
-  query BlogData($id: String) {
+  query ProfileData($id: String) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
-        description
+        information {
+          title
+          subTitle
+          description
+        }
+        contact {
+          email
+          github
+          phone
+        }
       }
     }
   }
