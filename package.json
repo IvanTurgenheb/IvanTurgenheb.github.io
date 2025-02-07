@@ -1,17 +1,15 @@
 {
   "name": "sang-jin",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "sangjin's develop profile",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
+  "author": "dltkdwls60202@gmail.com",
   "dependencies": {
     "@fontsource-variable/montserrat": "^5.0.17",
     "@fontsource/merriweather": "^5.0.8",
     "@mdx-js/react": "^2.3.0",
     "gatsby": "^5.14.1",
+    "gatsby-cli": "^5.14.0",
     "gatsby-plugin-feed": "^5.14.0",
     "gatsby-plugin-image": "^3.14.0",
     "gatsby-plugin-manifest": "^5.14.0",
@@ -31,6 +29,8 @@
   "devDependencies": {
     "@chakra-ui/react": "^3.7.0",
     "eslint": "^7.32.0",
+    "gatsby-post-gen": "^1.0.0",
+    "gh-pages": "^6.3.0",
     "prettier": "^2.8.8"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
@@ -44,6 +44,8 @@
   },
   "scripts": {
     "build": "gatsby build",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "create": "gatsby-post-gen",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "gatsby develop",

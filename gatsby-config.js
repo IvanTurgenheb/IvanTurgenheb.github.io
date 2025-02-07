@@ -5,6 +5,7 @@ const SITE_METADATA = Object.freeze({
 
 module.exports = {
   siteMetadata: SITE_METADATA,
+  pathPrefix: "/gatsby-demo",
   plugins: [
     `gatsby-plugin-image`,
     `gatsby-plugin-mdx`,
