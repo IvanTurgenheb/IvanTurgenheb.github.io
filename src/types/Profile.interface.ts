@@ -24,6 +24,15 @@ export interface CertificatesType {
   institution: string
 }
 
+export interface ExperiencesType {
+  title: string
+  subTitle: string
+  imgUrl?: string
+  date: string
+  descriptions: string[]
+  githubLink?: string
+}
+
 export interface SkillsType {
   stack: string[]
 }

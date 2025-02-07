@@ -1,7 +1,10 @@
 import { Box, Image, Text } from "@chakra-ui/react"
 import profile from "../../images/profile.png"
 import React from "react"
-import { ContactType, InformationType } from "../../types/Profile.interface"
+import type {
+  ContactType,
+  InformationType,
+} from "../../types/Profile.interface"
 import ContactCard from "./components/ContactCard"
 import { FaGithub } from "react-icons/fa"
 import { MdOutlineEmail, MdOutlinePhoneAndroid } from "react-icons/md"
@@ -50,6 +53,7 @@ const Profile = ({ information, contact }: HeaderProps) => {
           width="210px"
           backgroundColor="brown"
           borderRadius="md"
+          alt="myProfile"
         />
       </Box>
     </Box>
