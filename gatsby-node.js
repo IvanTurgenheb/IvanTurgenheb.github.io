@@ -26,7 +26,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   myProfileElements.forEach(profile => {
     createPage({
-      path: post.fields.slug,
+      path: profile.fields.slug,
       component: 자기소개Template,
     })
   })

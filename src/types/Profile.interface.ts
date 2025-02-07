@@ -8,6 +8,7 @@ export interface ContactType {
   email: string
   github: string
   phone: string
+  school: string
 }
 
 export interface PrizeType {
@@ -24,5 +25,5 @@ export interface CertificatesType {
 }
 
 export interface SkillsType {
-  title: string
+  stack: string[]
 }

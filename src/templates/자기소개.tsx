@@ -23,7 +23,9 @@ interface BlogTemplateProps {
         contact: ContactType
         prizes: PrizeType[]
         certificates: CertificatesType[]
-        skills: SkillsType[]
+        skills: {
+          stack: SkillsType[]
+        }
       }
     }
   }
@@ -66,6 +68,7 @@ export const pageQuery = graphql`
           email
           github
           phone
+          school
         }
         prizes {
           title
@@ -78,7 +81,7 @@ export const pageQuery = graphql`
           institution
         }
         skills {
-          title
+          stack
         }
       }
     }

@@ -5,7 +5,9 @@ import { Box } from "@chakra-ui/react"
 import { ButtonColors } from "./mock/buttonColors"
 
 interface SkillsProps {
-  skills: SkillsType[]
+  skills: {
+    stack: SkillsType[]
+  }
 }
 
 const Skills = ({ skills }: SkillsProps) => {
@@ -18,7 +20,7 @@ const Skills = ({ skills }: SkillsProps) => {
         marginTop="15px"
         flexWrap="wrap"
       >
-        {skills.map((skill, idx) => {
+        {skills.stack.map((skill, idx) => {
           const randomColor =
             ButtonColors[Math.floor(Math.random() * ButtonColors.length)]
 
@@ -29,7 +31,7 @@ const Skills = ({ skills }: SkillsProps) => {
               backgroundColor={randomColor}
               borderRadius="999px"
             >
-              {skill.title}
+              {String(skill)}
             </Box>
           )
         })}

@@ -5,6 +5,7 @@ import { ContactType, InformationType } from "../../types/Profile.interface"
 import ContactCard from "./components/ContactCard"
 import { FaGithub } from "react-icons/fa"
 import { MdOutlineEmail, MdOutlinePhoneAndroid } from "react-icons/md"
+import { FaSchool } from "react-icons/fa6"
 
 interface HeaderProps {
   information: InformationType
@@ -42,11 +43,11 @@ const Profile = ({ information, contact }: HeaderProps) => {
           <ContactCard text={contact.email} icon={<MdOutlineEmail />} />
           <ContactCard text={contact.github} icon={<FaGithub />} />
           <ContactCard text={contact.phone} icon={<MdOutlinePhoneAndroid />} />
+          <ContactCard text={contact.school} icon={<FaSchool />} />
         </Box>
         <Image
           src={profile}
           width="210px"
-          height="260px"
           backgroundColor="brown"
           borderRadius="md"
         />
