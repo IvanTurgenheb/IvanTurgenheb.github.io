@@ -23,7 +23,13 @@ const Experiences = ({ experiences }: ExperiencesProps) => {
             <Text fontSize="18px" fontWeight="600">
               {experience.date}
             </Text>
-            <Image height="85px" borderRadius="md" src={experience.imgUrl} />
+            <Image
+              width="94px"
+              height="94px"
+              borderRadius="md"
+              src={experience.imgUrl}
+              alt="experience_image"
+            />
             <Text
               padding="8px 12px"
               borderRadius="99px"

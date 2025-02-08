@@ -1,6 +1,6 @@
 const SITE_METADATA = Object.freeze({
   title: "FE 개발자 이상진",
-  description: "프론트엔드 엔지니어 이상진.",
+  description: "프론트엔드 개발자 이상진.",
 })
 
 module.exports = {

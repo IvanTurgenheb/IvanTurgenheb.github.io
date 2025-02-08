@@ -10,6 +10,7 @@ interface ContactCardProps {
 const ContactCard = ({ text, icon }: ContactCardProps) => {
   return (
     <Box
+      maxWidth="440px"
       backgroundColor="gray.200"
       borderRadius="md"
       padding="10px 12px"

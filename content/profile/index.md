@@ -1,7 +1,7 @@
 ---
 date: "2025-02-7T22:40:32.169Z"
 information:
-  title: "👋🏼 프론트엔드 엔지니어 이상진입니다."
+  title: "👋🏼 프론트엔드 개발자 이상진입니다."
   subTitle: "Frontend Developer"
   description: "긍정적인 에너지와 유연한 마인드를 바탕으로 성장하는 20살 프론트엔드 개발자입니다."
 contact:
@@ -30,6 +30,16 @@ certificates:
     date: "2023"
     institution: "한국산업인력공단"
 experiences:
+  - title: "스탠바이랩"
+    subTitle: "스탠바이랩은 변호사와 엔지니어가 모여 시작한 리걸테크 스타트업입니다."
+    imgUrl: "https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fa0400b1f-a1da-4db9-9202-204b28495e0c%2F66666.png&blockId=276bc158-34ea-4847-afbd-124109313c85&width=256"
+    date: "2024. 10 ~ 2025. 01"
+    descriptions:
+      - "vite, storybook을 사용하여 사내 디자인 시스템(dike)을 개발 하였습니다."
+      - "chromatic, github actions를 사용하여 배포를 자동화 하였습니다."
+      - "사업목적 페이지를 리뉴얼 하였습니다. (직접입력 목적 -> 추천목적)"
+      - "법인 상속 어드민 페이지의 기능을 개발하였습니다."
+      - "사내 서비스에 AI검색 기능을 추가하였습니다."
   - title: "쪼잉"
     subTitle: "쪼잉(JJoing) 소프트웨어 마이스터고등학교 학생들을 위한 프로젝트 모집 서비스입니다."
     imgUrl: "https://avatars.githubusercontent.com/u/130944406?s=200&v=4"
@@ -44,16 +54,6 @@ experiences:
       - "진행한 프로젝트, 진행중인 프로젝트 기능을 구현하였습니다."
       - "프로젝트 좋아요 기능을 구현하였습니다."
     githubLink: "https://github.com/WOONGEYA"
-  - title: "스탠바이랩"
-    subTitle: "스탠바이랩은 변호사와 엔지니어가 모여 시작한 리걸테크 스타트업입니다."
-    imgUrl: "https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fa0400b1f-a1da-4db9-9202-204b28495e0c%2F66666.png&blockId=276bc158-34ea-4847-afbd-124109313c85&width=256"
-    date: "2024. 10 ~ 2025. 01"
-    descriptions:
-      - "vite, storybook을 사용하여 사내 디자인 시스템(dike)을 개발 하였습니다."
-      - "chromatic, github actions를 사용하여 배포를 자동화 하였습니다."
-      - "사업목적 페이지를 리뉴얼 하였습니다. (직접입력 목적 -> 추천목적)"
-      - "법인 상속 어드민 페이지의 기능을 개발하였습니다."
-      - "사내 서비스에 AI검색 기능을 추가하였습니다."
 skills:
   stack:
     - "scss"

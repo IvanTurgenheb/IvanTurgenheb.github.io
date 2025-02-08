@@ -1,5 +1,5 @@
 import { Box, Image, Text } from "@chakra-ui/react"
-import profile from "../../images/profile.png"
+import profile from "../../images/profile.webp"
 import React from "react"
 import type {
   ContactType,
@@ -24,11 +24,11 @@ const Profile = ({ information, contact }: HeaderProps) => {
       <Box
         display="flex"
         justifyContent="space-between"
-        gap="50px"
+        gap="40px"
         marginTop="30px"
       >
         <Box display="flex" flexDirection="column" gap="10px">
-          <Box>
+          <Box maxWidth="440px">
             <Text fontSize="20px" fontWeight="500" color="green.600">
               {information.subTitle}
             </Text>
@@ -51,6 +51,7 @@ const Profile = ({ information, contact }: HeaderProps) => {
         <Image
           src={profile}
           width="210px"
+          height="312px"
           backgroundColor="brown"
           borderRadius="md"
           alt="myProfile"
