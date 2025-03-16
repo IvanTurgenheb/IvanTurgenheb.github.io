@@ -8,7 +8,7 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <Box width="100%" minHeight="100dvh" paddingBottom="80px">
-      <Box width="700px" margin="0 auto" marginTop="80px">
+      <Box maxWidth="725px" margin="0 auto" marginTop="80px" padding="0 15px">
         {children}
       </Box>
     </Box>

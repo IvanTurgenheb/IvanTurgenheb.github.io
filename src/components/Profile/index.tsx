@@ -1,4 +1,4 @@
-import { Box, Image, Text } from "@chakra-ui/react"
+import { Box, Image, Text, useMediaQuery } from "@chakra-ui/react"
 import profile from "../../images/profile.webp"
 import React from "react"
 import type {
@@ -16,8 +16,17 @@ interface HeaderProps {
 }
 
 const Profile = ({ information, contact }: HeaderProps) => {
+  const [isLessThan598] = useMediaQuery(["(max-width: 598px)"], {
+    ssr: true,
+    fallback: [false],
+  })
+  const [isLessThan525] = useMediaQuery(["(max-width: 525px)"], {
+    ssr: true,
+    fallback: [false],
+  })
+
   return (
-    <Box as="section" marginBottom="60px">
+    <Box as="section" marginBottom="60px" padding="0 15px">
       <Text textStyle="3xl" fontWeight="600">
         {information.title}
       </Text>
@@ -50,8 +59,9 @@ const Profile = ({ information, contact }: HeaderProps) => {
         </Box>
         <Image
           src={profile}
+          display={isLessThan525 ? "none" : "inline-block"}
           width="210px"
-          height="312px"
+          height={isLessThan598 ? "334px" : "312px"}
           backgroundColor="brown"
           borderRadius="md"
           alt="myProfile"

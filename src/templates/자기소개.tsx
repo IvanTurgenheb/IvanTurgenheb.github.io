@@ -9,13 +9,14 @@ import type {
   PrizeType,
   SkillsType,
 } from "../types/Profile.interface"
-import Layout from "../components/Layout"
-import Seo from "../components/Seo"
+
 import Profile from "../components/Profile"
 import Prizes from "../components/Prizes"
 import Certificates from "../components/Certificates"
 import Skills from "../components/Skills"
 import Experiences from "../components/Experiences"
+import Layout from "../components/layout"
+import Seo from "../components/seo"
 
 interface BlogTemplateProps {
   data: {

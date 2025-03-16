@@ -63,8 +63,8 @@ skills:
     - "mobx"
     - "jotai"
     - "react"
-    - "next"
     - "turbo repo"
+    - "next"
     - "storybook"
     - "react-query"
 ---
