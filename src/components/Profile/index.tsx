@@ -16,14 +16,13 @@ interface HeaderProps {
 }
 
 const Profile = ({ information, contact }: HeaderProps) => {
-  const [isLessThan598] = useMediaQuery(["(max-width: 598px)"], {
-    ssr: true,
-    fallback: [false],
-  })
-  const [isLessThan525] = useMediaQuery(["(max-width: 525px)"], {
-    ssr: true,
-    fallback: [false],
-  })
+  const [isLessThan598, isLessThan525] = useMediaQuery(
+    ["(max-width: 598px)", "(max-width: 525px)"],
+    {
+      ssr: true,
+      fallback: [false],
+    }
+  )
 
   return (
     <Box as="section" marginBottom="60px" padding="0 15px">

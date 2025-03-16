@@ -1,18 +1,16 @@
 import React from "react"
 import type { ExperiencesType } from "../../types/Profile.interface"
-import { Box, Image, List, Text, useMediaQuery } from "@chakra-ui/react"
-import { LuCircleCheck } from "react-icons/lu"
+import { Box, Image, List, Text } from "@chakra-ui/react"
 import Wrapper from "../Wrapper"
+import useExperiences from "./hooks/useExperiences"
+import Descriptions from "./components/descriptions"
 
 interface ExperiencesProps {
   experiences: ExperiencesType[]
 }
 
 const Experiences = ({ experiences }: ExperiencesProps) => {
-  const [isLessThan700] = useMediaQuery(["(max-width: 700px)"], {
-    ssr: true,
-    fallback: [false],
-  })
+  const { isLessThan700 } = useExperiences()
 
   return (
     <Wrapper title="🛠️ Experiences" style={{ marginBottom: "40px" }}>
@@ -78,18 +76,16 @@ const Experiences = ({ experiences }: ExperiencesProps) => {
               )}
             </Box>
           </Box>
-          <Box>
+          <Box maxWidth="550px">
             <Text fontSize="18px">{experience.subTitle}</Text>
-            <List.Root gap="2" variant="plain" align="center" marginTop="30px">
-              {experience.descriptions.map(description => (
-                <List.Item>
-                  <List.Indicator asChild color="green.500">
-                    <LuCircleCheck />
-                  </List.Indicator>
-                  <Text lineHeight="20px" fontWeight="600">
-                    {description}
-                  </Text>
-                </List.Item>
+            <List.Root
+              gap="20px"
+              variant="plain"
+              align="center"
+              marginTop="30px"
+            >
+              {experience.descriptions.map((description, idx) => (
+                <Descriptions key={idx} description={description} />
               ))}
             </List.Root>
           </Box>
